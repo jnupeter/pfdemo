@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:tieredMenu>
+                <p:submenu label="file">
+                    <p:menuitem icon="ui-icon-close" value="Close" iconPos="right"/>
+                    <p:menuitem icon="ui-icon-close" value="Close" iconPos="right"/>
+                    <p:menuitem icon="ui-icon-close" value="Close" iconPos="right"/>
+                </p:submenu>
+                <p:submenu label="edit">
+                    <p:menuitem icon="ui-icon-close" value="Close" iconPos="right"/>
+                    <p:menuitem icon="ui-icon-close" value="Close" iconPos="right"/>
+                    <p:menuitem icon="ui-icon-close" value="Close" iconPos="right"/>
+                </p:submenu>                
+            </p:tieredMenu>
+        </h:form>
+
+        <h:form>
+            <p:panel>
+                <f:facet name="header">
+                    <p:menuButton value="Options">
+                        <p:menuitem value="haha" />
+                    </p:menuButton>
+                </f:facet>
+                <p:contextMenu>
+                    <p:menuitem value="save" icon="ui-icon-save" />
+                    <p:menuitem value="save" icon="ui-icon-save" />
+                    <p:separator />
+                    <p:menuitem value="save" icon="ui-icon-save" />
+                </p:contextMenu>
+            </p:panel>
+        </h:form>
+        
+        <p:breadCrumb>
+            <p:menuitem value="Categories" url="#" />
+            <p:menuitem value="Sports" url="#" />
+            <p:menuitem value="Basketball" url="#" />
+            <p:menuitem value="NBA" url="#" />
+            <p:menuitem value="Teams" url="#" />
+            <p:menuitem value="L.A. Lakers" url="#" />
+            <p:menuitem value="Roster" url="#" />
+            <p:menuitem value="Kobe Bryant" url="#" />
+        </p:breadCrumb>
+        
+        <p:stack icon="/resource/home.png" expanded="true">
+            <p:menuitem value="Music" icon="/resource/music.png" url="#"/>
+            <p:menuitem value="Video" icon="/resource/video.png" url="#"/>
+            <p:menuitem value="History" icon="/resource/history.png" url="#"/>
+        </p:stack>
+        <p:dock position="bottom">
+            <p:menuitem value="Home" icon="/resource/home.png" url="#"/>
+            <p:menuitem value="Music" icon="/resource/music.png" url="#"/>
+            <p:menuitem value="Video" icon="/resource/video.png" url="#"/>
+            <p:menuitem value="History" icon="/resource/history.png" url="#"/>
+        </p:dock>
+    </h:body>
+</html>
+
