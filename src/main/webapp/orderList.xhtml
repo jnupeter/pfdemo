@@ -8,7 +8,15 @@
     </h:head>
     <h:body>
         <h:form>
+            <p:ajaxStatus />
             <p:orderList value="#{orderListController.cities}" var="city" itemValue="#{city}" itemLabel="#{city}" controlsLocation="right" effect="fold"></p:orderList>
+            <p:commandButton value="Submit" update="display" oncomplete="PF('mydlg').show()"/>
+            <p:separator />
+            <p:dialog widgetVar="mydlg">
+                <p:dataList id="display" value="#{orderListController.cities}" var="city">
+                    <p:outputLabel value="#{city}" />
+                </p:dataList>
+            </p:dialog>
         </h:form>
     </h:body>
 </html>
