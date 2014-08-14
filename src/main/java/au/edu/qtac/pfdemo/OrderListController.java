@@ -9,7 +9,7 @@ package au.edu.qtac.pfdemo;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 /**
@@ -17,16 +17,20 @@ import javax.inject.Named;
  * @author peter
  */
 @Named
-@RequestScoped
-public class OrderListController {
+@SessionScoped
+public class OrderListController implements java.io.Serializable {
     
     private List<String> cities;
     public List<String> getCities() {
         return this.cities;
     }
+    public void setCities(final List<String> cities) {
+        this.cities = cities;
+    }
     
     @PostConstruct
     public void init() {
+        System.out.println("=====new instance created=======");
         cities = new ArrayList<String>();
         cities.add("Brisbane");
         cities.add("Sydney");
