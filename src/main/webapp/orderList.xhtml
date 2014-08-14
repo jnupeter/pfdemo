@@ -42,8 +42,8 @@
             <p:commandButton value="Submit" update="display" oncomplete="PF('mydlg').show()"/>
             <p:separator />
             <p:dialog widgetVar="mydlg">
-                <p:dataList id="display" value="#{orderListController.cities}" var="city">
-                    <p:outputLabel value="#{city}" />
+                <p:dataList id="display" value="#{orderListController.cities}" var="city"  rowIndexVar="rowindex">
+                    <p:outputLabel value="#{rowindex} - #{city}" />
                 </p:dataList>
             </p:dialog>
         </h:form>
