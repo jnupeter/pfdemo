@@ -26,7 +26,8 @@
     <h:body>
         <h:form>
             <p:ajaxStatus />
-            <p:orderList value="#{orderListController.cities}" var="city" itemValue="#{city}" controlsLocation="right" effect="fold">
+            <p:orderList value="#{orderListController.cities}" var="city" itemValue="#{city}" controlsLocation="right" effect="fold"
+                         valueChangeListener="#{orderListController.change}">
                 <f:facet name="caption">
                     <p:column style="width: 25%">asdf</p:column>    
                     <p:column style="width: 75%">aasdfsdf</p:column> 
@@ -46,6 +47,33 @@
                     <p:outputLabel value="#{rowindex} - #{city}" />
                 </p:dataList>
             </p:dialog>
+        </h:form>
+        <p:separator />
+        <h:form>
+            <p:orderList value="#{orderListController.users}" var="user" itemValue="#{user}" controlsLocation="right" effect="fold"
+                         converter="userconverter">
+                <f:facet name="caption">
+                    <div>Users</div>
+                </f:facet>
+                <p:column style="width: 25%">
+                    <div>#{user.id}</div>
+                </p:column>
+                <p:column style="width: 25%">
+                    <div>#{user.firstName}</div>
+                </p:column>
+                <p:column style="width: 25%">
+                    <div>#{user.lastName}</div>
+                </p:column>
+                <p:column style="width: 25%">
+                    <div>#{user.sequence}</div>
+                </p:column>
+            </p:orderList>
+            <p:commandButton value="Change Order" update="mypanel"/>
+            <p:outputPanel id="mypanel">
+                <p:dataList value="#{orderListController.users}" var="user" >
+                    <p:column>#{user.lastName}</p:column>
+                </p:dataList>
+            </p:outputPanel>
         </h:form>
     </h:body>
 </html>
