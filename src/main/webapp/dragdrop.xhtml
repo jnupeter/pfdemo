@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <div style="border: 1px solid blue; background-color: grey; width: 400px; height: 600px;">
+            <p:panel header="panel1" style="width: 200px">
+                 Hello from Facelets
+                 <p:draggable  zindex="1000" scope="panel1"/>
+            </p:panel>
+            <p:panel header="panel2" style="width: 300px">
+                 Hello from Facelets
+                 <p:draggable  zindex="500" scope="panel2"/>
+            </p:panel>
+        </div>
+        <p:panel id="droparea" header="droppable" style="border: 1px solid blue; background-color: beige; width:400px; height: 600px; position: fixed; right: 0; bottom: 0;">
+        </p:panel>
+        <p:droppable for="droparea"  tolerance="touch" onDrop="handleDrop" scope="panel2"/>
+        <script>
+            function handleDrop(event, ui) {
+                console.log("something dropped.");
+                ui.draggable.fadeOut('fast');
+            }
+        </script>
+    </h:body>
+</html>
+
