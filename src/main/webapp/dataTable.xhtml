@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:dataTable value="#{dataTableController.users}" var="user" draggableRows="true"
+                         selection="#{dataTableController.selectedUser}"
+                         selectionMode="single"
+                         rowKey="#{user.id}">
+                <p:ajax event="rowReorder" listener="#{dataTableController.onReorder}" />
+                <f:facet name="header">
+                    Users for ordering
+                </f:facet>
+                <p:column headerText="Id" width="10%">
+                    #{user.id}
+                </p:column>
+                <p:column headerText="FirstName" width="10%">
+                    #{user.firstName}
+                </p:column>
+                <p:column headerText="LastName" width="10%">
+                    #{user.lastName}
+                </p:column>
+                <p:column headerText="Sequence" width="10%">
+                    #{user.sequence}
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
