@@ -7,6 +7,8 @@
 package au.edu.qtac.pfdemo;
 
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.ViewExpiredException;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -35,5 +37,9 @@ public class TestBean {
     }
     public void setAge(final int age) {
         this.age = age;
+    }
+    
+    public void someException() {
+        throw new ViewExpiredException("some message", FacesContext.getCurrentInstance().getViewRoot().getViewId());
     }
 }

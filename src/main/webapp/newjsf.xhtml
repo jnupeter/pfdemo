@@ -22,7 +22,16 @@
             </h:panelGrid>
             
             <p:commandButton value="Save" icon="ui-icon-check" iconPos="right" validateClient="true"  ajax="false" />
+            <p:commandButton value="Ajax Exception" process="@this" actionListener="#{testBean.someException()}"/>
+            <p:commandButton value="Non-ajax Exception" ajax="false" actionListener="#{testBean.someException()}" />
         </h:form>
+        
+        <p:dialog id="errorDlg" widgetVar="errDlg" resizable="false" modal="true" closable="true">
+                #{testBean.name} message goes here.
+        </p:dialog>
+        <p:ajaxExceptionHandler type="javax.faces.application.ViewExpiredException"
+                            update="errorDlg"
+                            onexception="PF('errDlg').show();" />
     </h:body>
 </html>
 
