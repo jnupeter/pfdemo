@@ -6,6 +6,8 @@
 
 package au.edu.qtac.pfdemo.login;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -36,6 +38,11 @@ public class LoginBean {
         FacesContext context = FacesContext.getCurrentInstance();
         FacesMessage msg;
         if ("peter".equalsIgnoreCase(username) && "iampeter".equals(password)) {
+            try {
+                Thread.sleep(5000);  //slow login
+            } catch (InterruptedException ex) {
+                Logger.getLogger(LoginBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
             return "index";
         } else {
             msg = new FacesMessage("login error");
