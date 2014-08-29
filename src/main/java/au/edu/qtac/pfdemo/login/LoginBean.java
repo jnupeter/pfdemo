@@ -32,16 +32,17 @@ public class LoginBean {
     public void setPassword(final String password) {
         this.password = password;
     }
-    public void login() {
+    public String login() {
         FacesContext context = FacesContext.getCurrentInstance();
         FacesMessage msg;
         if ("peter".equalsIgnoreCase(username) && "iampeter".equals(password)) {
-            msg = new FacesMessage("login successfully");
-            msg.setSeverity(FacesMessage.SEVERITY_INFO);
+            return "index";
         } else {
             msg = new FacesMessage("login error");
             msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+            context.addMessage(null, msg);
+            return null;
         }
-        context.addMessage(null, msg);
+        
     }
 }

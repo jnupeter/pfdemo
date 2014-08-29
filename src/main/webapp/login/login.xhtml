@@ -23,7 +23,7 @@
                 </p:panelGrid>
                 <f:facet name="footer">
                     <p:commandButton id="btnCancel" style="float: left;" process="@this" value="Cancel" update="@form"><p:resetInput target="username password" /></p:commandButton>
-                    <p:commandButton id="btnLogin" style="float: right;" value="Login" update="@form" actionListener="#{loginBean.login}"/>
+                    <p:commandButton id="btnLogin" style="float: right;" value="Login" update="@form" action="#{loginBean.login}"/>
                 </f:facet>
             </p:panel>
         </h:form>
