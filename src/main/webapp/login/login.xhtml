@@ -22,11 +22,13 @@
                     <p:message for="password" />
                 </p:panelGrid>
                 <f:facet name="footer">
-                    <p:commandButton id="btnCancel" style="float: left;" process="@this" value="Cancel" update="@form"><p:resetInput target="username password" /></p:commandButton>
-                    <p:commandButton id="btnLogin" style="float: right;" value="Login" update="@form" action="#{loginBean.login}"/>
+                    <p:commandButton id="btnCancel" process="@this" value="Cancel" update="@form"><p:resetInput target="username password" /></p:commandButton>
+                    <p:commandButton  widgetVar="loginBtn" id="btnLogin"  onstart="PF('loginBtn').disable();" oncomplete="PF('loginBtn').enable();" value="Login" update="@form" action="#{loginBean.login}"/>
+                    <p:commandButton  widgetVar="ajaxLoginBtn" onstart="disableOnStart('ajaxLoginBtn');" oncomplete="enabledOnComplete('ajaxLoginBtn', 'asdfsdf');" value="Ajax Login" update="@form" actionListener="#{loginBean.ajaxLogin}"/>
                 </f:facet>
             </p:panel>
         </h:form>
+        <h:outputScript library="js" name="helper.js" />
     </h:body>
 </html>
 

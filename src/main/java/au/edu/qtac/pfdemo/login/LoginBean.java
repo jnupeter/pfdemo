@@ -34,6 +34,7 @@ public class LoginBean {
     public void setPassword(final String password) {
         this.password = password;
     }
+    
     public String login() {
         FacesContext context = FacesContext.getCurrentInstance();
         FacesMessage msg;
@@ -51,5 +52,16 @@ public class LoginBean {
             return null;
         }
         
+    }
+    
+    public void ajaxLogin() {
+        try {
+            Thread.sleep(1000);
+            if ("peter".equalsIgnoreCase(username) && "iampeter".equals(password)){
+            Thread.sleep(5000);  //slow login
+            }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(LoginBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
